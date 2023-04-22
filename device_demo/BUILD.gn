@@ -1,0 +1,33 @@
+import("//build_overrides/chip.gni")
+
+import("${chip_root}/build/chip/tools.gni")
+import("${chip_root}/src/app/chip_data_model.gni")
+import("${chip_root}/src/app/common_flags.gni")
+
+assert(chip_build_tools)
+
+
+chip_data_model("data-model") {
+  zap_file = "${chip_root}/examples/chef/devices/rootnode_onofflight_bbs1b7IaOV.zap"
+  zap_pregenerated_dir = "//zap-generated/"
+  is_server = true
+}
+
+executable("device") {
+  sources = [
+    "//main.cpp",
+  ]
+
+  deps = [
+    ":data-model",
+    "//app:app-main",
+    "${chip_root}/src/lib",
+  ]
+
+  include_dirs = [ "include" ]
+
+  cflags = [ "-Wconversion" ]
+
+  output_dir = root_out_dir
+}
+
