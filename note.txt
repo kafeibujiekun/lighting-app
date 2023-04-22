@@ -1,0 +1,10 @@
+控制开关灯
+class DeviceController
+
+examples\chip-tool\commands\clusters\ModelCommand.cpp
+	RunCommand
+		GetDeviceBeingCommissioned，确认是否在调试状态
+		GetConnectedDevice 查找与给定 nodeid 对应的设备，并在设备上建立一个CASE会话。
+		* 如果CASE会话成功建立，调用OnDeviceConnectedFn
+			
+		* 失败调用OnDeviceConnectionFailureFn
