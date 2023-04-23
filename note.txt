@@ -8,3 +8,10 @@ examples\chip-tool\commands\clusters\ModelCommand.cpp
 		* 如果CASE会话成功建立，调用OnDeviceConnectedFn
 			
 		* 失败调用OnDeviceConnectionFailureFn
+		
+sTestCert_PAA_FFF1_Cert
+	-> src\credentials\tests\CHIPAttCert_test_vectors.cpp
+		sTestCert_PAA_FFF1_Cert_Array[]
+		设备 DAC 证书的颁发者是产品认证中间证书 (Product Attestation Intermediate, PAI) ，通常由设备厂商持有。PAI 证书由产品认证根证书 (PAA) 签发以保证受信。所有受信任的 PAA 证书均存储在 CSA 连接标准联盟 (Connectivity Standard Alliance) 提供的分布式合规分类账 (Distributed Compliance Ledger, DCL) 中
+		
+		NOC 既可以由中间证书颁发机构 (Intermediate Certificate Authority, ICA) 签发，也可以直接由根证书颁发机构 (Root Certificate Authority, RCA) 签发。RCA 通常由 commissioner 生成。NOC 和 RCA 会在 commissioning 过程中被安装至设备。
